@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Canvas Drawing</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body onload="drawCanvas()">
+    <canvas id="myCanvas" width="800" height="400"></canvas>
+
+    <script>
+        function drawCanvas() {
+            // Get the canvas element and its 2D drawing context
+            const canvas = document.getElementById("myCanvas");
+            const ctx = canvas.getContext("2d");
+
+            // Module 1: Draw 4 circles to the left side of the canvas
+            const circleRadius = 30;
+            const circleX = 100;
+            const circleSpacing = 80;
+            const colors = ["red", "green", "blue", "yellow"];
+
+            for (let i = 0; i < 4; i++) {
+                const circleY = 200 + (i * circleSpacing);
+                ctx.beginPath();
+                ctx.arc(circleX, circleY, circleRadius, 0, 2 * Math.PI);
+                ctx.fillStyle = colors[i];
+                ctx.fill();
+            }
+
+            // Module 2: Draw arrows corresponding to each circle to the right side of the canvas
+            const arrowX = 600;
+            const arrowLength = 50;
+            const arrowAngle = Math.PI / 6; // 30 degrees
+
+            for (let i = 0; i < 4; i++) {
+                const arrowY = 200 + (i * circleSpacing);
+                ctx.beginPath();
+                ctx.moveTo(arrowX, arrowY);
+                ctx.lineTo(arrowX - arrowLength * Math.cos(arrowAngle), arrowY - arrowLength * Math.sin(arrowAngle));
+                ctx.moveTo(arrowX, arrowY);
+                ctx.lineTo(arrowX - arrowLength * Math.cos(arrowAngle), arrowY + arrowLength * Math.sin(arrowAngle));
+                ctx.stroke();
+            }
+        }
+    </script>
+</body>
+</html>
