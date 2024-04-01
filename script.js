@@ -7,6 +7,7 @@ var circles = [
   {x: 50, y: 350, color: "yellow", initialColor: "yellow", hit: false, arrowX: 470, arrowY: 350}
 ];
 
+
 // Function to draw a circle
 function drawCircle(circle) {
   ctx.beginPath();
@@ -35,6 +36,7 @@ function drawArrow(circle) {
   ctx.lineWidth = 2;
   ctx.stroke();
 }
+
 
 // Function to draw the canvas
 function drawCanvas() {
@@ -72,6 +74,7 @@ canvas.addEventListener('click', function(event) {
     }
   });
 });
+
 
 // Handle click events on the reset button
 document.getElementById("resetButton").addEventListener('click', function() {
