@@ -87,5 +87,7 @@ document.getElementById("resetButton").addEventListener('click', function() {
   drawCanvas();
 });
 
+
+
 // Draw the initial canvas
 drawCanvas();
